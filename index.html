@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 4 · Lesson 4 — Listening & Writing (Grade 11 · Extra Class)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Segoe UI", Arial, sans-serif; background: #FDF6E3; color: #16324F; min-height: 100vh; }
+  header { background: #16324F; color: #fff; padding: 10px 18px; display: flex; justify-content: space-between; align-items: center; }
+  header .brand { font-weight: 800; font-size: 1.05rem; }
+  header .prog { font-size: 1rem; background: #C9A227; padding: 4px 14px; border-radius: 20px; font-weight: 700; }
+  .slide { display: none; max-width: 1180px; margin: 0 auto; padding: 26px 22px 90px; }
+  .slide.on { display: block; }
+  h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); text-align: center; margin: 12px 0 6px; }
+  h2 { font-size: clamp(1.6rem, 3.4vw, 2.4rem); margin-bottom: 10px; }
+  .stage { display: inline-block; background: #16324F; color: #F2C94C; font-weight: 800; font-size: 1rem; padding: 4px 14px; border-radius: 14px; margin-bottom: 8px; }
+  .sub { text-align: center; font-size: 1.25rem; color: #5a4a1f; margin-bottom: 16px; }
+  .instr { font-size: 1.28rem; background: #FFF3CD; border-left: 8px solid #C9A227; padding: 12px 16px; border-radius: 10px; margin-bottom: 18px; }
+  .card { background: #fff; border: 2px solid #E4D6B0; border-radius: 16px; padding: 20px; box-shadow: 0 3px 0 #E4D6B0; margin-bottom: 16px; }
+  .bigbtn { display: inline-block; background: #2E9E5B; color: #fff; font-size: 1.5rem; font-weight: 800; border: none; border-radius: 14px; padding: 16px 42px; cursor: pointer; }
+  .center { text-align: center; }
+  nav.foot { position: fixed; bottom: 0; left: 0; right: 0; background: #16324F; padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; z-index: 5; }
+  nav.foot button { background: #C9A227; color: #16324F; font-weight: 800; font-size: 1.15rem; border: none; border-radius: 10px; padding: 10px 26px; cursor: pointer; }
+  nav.foot button:disabled { opacity: .35; cursor: default; }
+  nav.foot .dots { color: #fff; font-size: 1rem; }
+  video { width: 100%; border-radius: 14px; background: #000; }
+  audio { width: 100%; margin-bottom: 14px; }
+  .vframe { flex: none; max-width: 980px; margin: 0 auto; }
+  .flowmap { font-size: 1.22rem; line-height: 1.75; }
+  .fcwrap { max-width: 900px; margin: 0 auto; }
+  .fcmeta { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+  .fccount { font-size: 1.3rem; font-weight: 800; white-space: nowrap; }
+  .fcbar { flex: 1; height: 14px; background: #EFE3C0; border-radius: 8px; overflow: hidden; }
+  .fcbar > div { height: 100%; background: #2E9E5B; width: 0%; transition: width .3s; }
+  .fcstage { perspective: 1200px; height: min(58vh, 560px); }
+  .fcin { position: relative; width: 100%; height: 100%; transition: transform .55s; transform-style: preserve-3d; cursor: pointer; }
+  .fcin.flip { transform: rotateY(180deg); }
+  .fcface { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 20px; overflow: hidden; }
+  .fcfront { border: 4px solid #C9A227; background: #FFE9A8; }
+  .fcfront img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .fchint { position: absolute; left: 0; right: 0; bottom: 0; background: rgba(255,248,225,.94); border-top: 3px solid #C9A227; padding: 12px 18px; font-size: clamp(1.2rem, 2.4vw, 1.5rem); font-weight: 700; text-align: center; }
+  .fcback { background: #EAF4FF; border: 4px solid #7FB2E5; transform: rotateY(180deg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 22px; text-align: center; }
+  .fcw { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 800; }
+  .fcipa { font-size: 1.45rem; color: #555; }
+  .fcvn { font-size: 1.5rem; font-weight: 800; color: #9C6B00; background: #FFE9A8; padding: 4px 20px; border-radius: 14px; }
+  .fcdef { font-size: 1.35rem; line-height: 1.45; }
+  .fcex { font-size: 1.3rem; font-style: italic; color: #37506B; }
+  .fcnav { display: flex; justify-content: space-between; gap: 10px; margin-top: 14px; }
+  .fcnav button { flex: 1; font-size: 1.3rem; font-weight: 800; padding: 14px 8px; border-radius: 12px; border: none; cursor: pointer; background: #16324F; color: #fff; }
+  .fcnav button.flipbtn { background: #C9A227; color: #16324F; }
+  .spk { background: #16324F; color: #fff; border: none; border-radius: 24px; padding: 10px 22px; font-size: 1.15rem; font-weight: 700; cursor: pointer; }
+  .q { margin-bottom: 18px; }
+  .qtext { font-size: clamp(1.3rem, 2.4vw, 1.6rem); margin-bottom: 10px; line-height: 1.45; }
+  .opts { display: flex; flex-wrap: wrap; gap: 10px; }
+  .opt { font-size: 1.25rem; padding: 12px 20px; border-radius: 12px; border: 3px solid #B9C6D4; background: #fff; cursor: pointer; font-weight: 600; }
+  .opt:hover { border-color: #16324F; }
+  .opt.right { background: #D8F3DC; border-color: #2E9E5B; }
+  .opt.wrong { background: #FDE2E2; border-color: #C0392B; }
+  .opt:disabled { cursor: default; opacity: .92; }
+  .explain { display: none; margin-top: 8px; font-size: 1.12rem; font-style: italic; color: #37506B; }
+  .explain.show { display: block; }
+  select.gap { font-size: 1.22rem; padding: 6px 10px; border-radius: 8px; border: 2px solid #B9C6D4; max-width: 100%; }
+  input.gapin { font-size: 1.22rem; padding: 6px 10px; border-radius: 8px; border: 2px solid #B9C6D4; width: 220px; max-width: 70vw; font-family: inherit; }
+  .selrow { font-size: 1.35rem; margin-bottom: 14px; line-height: 2; }
+  .toggle { background: #7FB2E5; color: #16324F; font-weight: 800; border: none; border-radius: 10px; padding: 10px 22px; font-size: 1.15rem; cursor: pointer; margin: 8px 0; }
+  .ordrow { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+  .ord { font-size: 1.3rem; padding: 12px 18px; border-radius: 12px; border: 3px solid #B9C6D4; background: #fff; cursor: pointer; font-weight: 700; }
+  .ord.picked { background: #16324F; color: #fff; border-color: #16324F; }
+  .ordseq { font-size: 1.35rem; min-height: 2rem; font-weight: 700; color: #9C6B00; }
+  .read p { font-size: 1.3rem; line-height: 1.6; margin-bottom: 12px; }
+  .langbox { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 760px){ .langbox { grid-template-columns: 1fr; } }
+  .langbox .card h3 { font-size: 1.5rem; margin-bottom: 8px; }
+  .langbox .card p, .langbox .card li { font-size: 1.25rem; line-height: 1.55; }
+  .model { display: none; }
+  .model.show { display: block; }
+  .mapimg { width: 100%; border-radius: 14px; display: block; }
+  textarea { width: 100%; font-size: 1.25rem; padding: 12px; border: 2px solid #B9C6D4; border-radius: 10px; min-height: 110px; font-family: inherit; }
+  input.name { font-size: 1.2rem; padding: 10px; border: 2px solid #B9C6D4; border-radius: 10px; width: 100%; margin-bottom: 12px; }
+  .bigscore { font-size: 2.1rem; font-weight: 800; text-align: center; color: #16324F; }
+  #report table { width: 100%; border-collapse: collapse; font-size: 1.15rem; }
+  #report td, #report th { border: 1px solid #E4D6B0; padding: 8px 10px; text-align: left; }
+  #report th { background: #16324F; color: #F2C94C; }
+  footer.credit { text-align: center; padding: 18px 12px 84px; color: #5a4a1f; font-size: 1.02rem; }
+  .stars { font-size: 2.6rem; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+  <span class="brand">🌏 Unit 4 · ASEAN and Vietnam — Lesson 4</span>
+  <span class="prog" id="scoreChip">⭐ 0 / 93</span>
+</header>
+
+<!-- 0 HOME -->
+<section class="slide on">
+  <div class="stars">🌏 🎉 🏮 🎤 📸</div>
+  <h1>A Proposal for ASEAN Day</h1>
+  <p class="sub">Unit 4 · ASEAN and Vietnam — Lesson 4: Listening & Writing · Grade 11 · Extra Class (B1–B2)</p>
+  <div class="card flowmap">
+    <b>Today's journey:</b><br>
+    🎮 <b>Stage 1 – Warmer:</b> a game to review Lesson 3 <i>(conference, delegate, climate, agreement…)</i><br>
+    🃏 <b>Stage 2 – Key words:</b> 20 flashcards, matching and gap-fill <i>(proposal, ceremony, guest, venue, stage, souvenir…)</i><br>
+    💡 <b>Grammar:</b> the passive voice — <i>is held · was organised · will be welcomed</i><br>
+    🎬 <b>Stage 3 – The story video:</b> watch, check, read, listen, speak and write<br>
+    🏠 <b>Homework:</b> 30 questions
+  </div>
+  <p class="center"><button class="bigbtn" onclick="go(1)">▶ Start the lesson</button></p>
+</section>
+
+<!-- 1 WARMER GAME -->
+<section class="slide">
+  <span class="stage">STAGE 1 · WARMER</span>
+  <h2>🎮 Game — Remember Lesson 3!</h2>
+  <div class="instr">Answer 10 questions to review Lesson 3: conferences, delegates and climate agreements — plus the present perfect vs the past simple.</div>
+  <div id="warmBox"></div>
+</section>
+
+<!-- 2 FLASHCARDS -->
+<section class="slide">
+  <span class="stage">STAGE 2 · VOCABULARY</span>
+  <h2>🃏 Flashcards — 20 Key Words of Unit 4</h2>
+  <div class="instr">One card at a time! Look at the picture, read the hint question and guess the word or phrase. Then flip the card, listen and repeat!</div>
+  <div class="fcwrap">
+    <div class="fcmeta"><span class="fccount" id="fcCount">Card 1 / 20</span><div class="fcbar"><div id="fcProg"></div></div></div>
+    <div class="fcstage"><div class="fcin" id="fcCard"></div></div>
+    <div class="fcnav">
+      <button type="button" onclick="fcMove(-1)">⬅ Previous</button>
+      <button type="button" class="flipbtn" onclick="fcFlip()">🔄 Flip card</button>
+      <button type="button" onclick="fcMove(1)">Next ➡</button>
+    </div>
+  </div>
+</section>
+
+<!-- 3 VOCAB CHECK: MATCHING -->
+<section class="slide">
+  <span class="stage">STAGE 2 · CHECK VOCABULARY</span>
+  <h2>🧩 Matching — Match the word to its meaning</h2>
+  <div class="instr">Choose the correct Vietnamese meaning for each word.</div>
+  <div class="card" id="matchBox"></div>
+</section>
+
+<!-- 4 VOCAB CHECK: GAP FILL -->
+<section class="slide">
+  <span class="stage">STAGE 2 · CHECK VOCABULARY</span>
+  <h2>✏️ Gap-fill — Complete the sentences</h2>
+  <div class="instr">Choose the correct word for each sentence.</div>
+  <div class="card" id="vgapBox"></div>
+</section>
+
+<!-- 5 GRAMMAR TEACH -->
+<section class="slide">
+  <span class="stage">GRAMMAR</span>
+  <h2>💡 Grammar — The Passive Voice</h2>
+  <div class="langbox">
+    <div class="card">
+      <h3>Present simple passive — regular events 📅</h3>
+      <p><b>Form:</b> am / is / are + past participle (V3)</p>
+      <p style="margin-top:8px;">• <i>The ceremony <b>is held</b> in the school hall every year.</i></p>
+      <p style="margin-top:8px;">• <i>Souvenirs <b>are given</b> to all the guests.</i></p>
+    </div>
+    <div class="card">
+      <h3>Past &amp; future passive 🕰️</h3>
+      <p><b>Form:</b> was / were + V3 (past) · will be + V3 (future)</p>
+      <p style="margin-top:8px;">• <i>The first ASEAN Day <b>was organised</b> in 2020.</i></p>
+      <p style="margin-top:8px;">• <i>The guests <b>will be welcomed</b> at the school gate.</i></p>
+    </div>
+  </div>
+  <div class="card">
+    <p style="font-size:1.25rem; line-height:1.6;">💡 Use the passive when the <b>action</b> is more important than the person who does it — very common in formal writing: proposals, announcements and news.<br>
+    🔁 Active: <i>Students will hang the banner.</i> → Passive: <i>The banner <b>will be hung</b> by students.</i></p>
+  </div>
+</section>
+
+<!-- 6 GRAMMAR CHECK -->
+<section class="slide">
+  <span class="stage">GRAMMAR · CHECK</span>
+  <h2>✏️ Check grammar — Choose the correct answer</h2>
+  <div id="pracBox"></div>
+</section>
+
+<!-- 7 VIDEO -->
+<section class="slide">
+  <span class="stage">STAGE 3 · THE STORY VIDEO</span>
+  <h2>🎬 Watch — A Proposal for ASEAN Day</h2>
+  <div class="instr">Watch the story. How do Linh and Nam prepare ASEAN Day at their school?</div>
+  <div class="vframe"><video controls preload="metadata" src="assets/story.mp4"></video></div>
+</section>
+
+<!-- 8 CHECK INFO: ORDER -->
+<section class="slide">
+  <span class="stage">STAGE 3 · CHECK THE VIDEO</span>
+  <h2>🔎 Check the video — Put the events in order</h2>
+  <div class="instr">Click the events in the order they happen in the video.</div>
+  <div class="card">
+    <div class="ordrow" id="ordRow"></div>
+    <div class="ordseq" id="ordSeq">Your order: …</div>
+    <p style="margin-top:10px;"><button class="toggle" onclick="checkOrder()">✔ Check</button> <button class="toggle" onclick="resetOrder()">↺ Try again</button></p>
+    <div class="explain" id="ordEx"></div>
+  </div>
+</section>
+
+<!-- 9 CHECK INFO: TRUE/FALSE -->
+<section class="slide">
+  <span class="stage">STAGE 3 · CHECK THE VIDEO</span>
+  <h2>🔎 Check the information — True or False?</h2>
+  <div class="instr">Are the sentences true or false? Watch the video again if you need.</div>
+  <div class="vframe" style="margin-bottom:16px;"><video controls preload="metadata" src="assets/story.mp4"></video></div>
+  <div id="tfBox"></div>
+</section>
+
+<!-- 10 READING -->
+<section class="slide">
+  <span class="stage">STAGE 3 · READING</span>
+  <h2>📖 Reading — A Proposal for ASEAN Day</h2>
+  <div class="instr">Read the story, then answer the questions.</div>
+  <div class="card read">
+    <p>This year, Linh's school will host an ASEAN Day to welcome exchange students from other ASEAN countries. One morning, Linh sat in the school library and wrote a proposal for a welcome ceremony. In her proposal, she listed every activity: a traditional dance, a singing competition, and small souvenirs for all the guests. At lunch, she showed the proposal to Nam, and he loved the ideas. “A traditional dance will be performed, and a singing competition will be held,” he said happily.</p>
+    <p>The next day, Linh and Nam took the proposal to their teacher, Ms Hoa. She read it carefully and smiled: “Well done! Your proposal is approved. The ceremony will be organised by your class.” On Friday afternoon, the students prepared the school hall. A big banner was hung above the stage, and the flags of ASEAN countries were put in a row. Early on Saturday, chairs were arranged by the helpers, and everything was checked carefully.</p>
+    <p>At eight o'clock, the ASEAN guests arrived at the school gate. They were welcomed by Linh, Nam and their classmates with flowers and big smiles. In the hall, a traditional dance was performed by Linh's class, and songs were sung in different ASEAN languages. The audience clapped loudly after every performance. When the sun went down, a group photo was taken in front of the banner, and souvenirs were given to the guests. It was an ASEAN Day the students would never forget.</p>
+  </div>
+  <div id="readBox"></div>
+</section>
+
+<!-- 11 LISTENING -->
+<section class="slide">
+  <span class="stage">STAGE 3 · LISTENING</span>
+  <h2>🎧 Listening — Exam Practice (Mid-term Format)</h2>
+  <div class="instr">🎧 Listen to the recording — each part is played TWICE. <b>Part 1:</b> complete the form with ONE word or a number. <b>Part 2:</b> decide True or False. The answers are NOT written in the questions — listen for the meaning!</div>
+  <audio controls preload="metadata" src="assets/listening.mp3"></audio>
+  <div class="card">
+    <p style="font-size:1.35rem; font-weight:800; margin-bottom:8px;">PART 1 — Complete the form: ASEAN WELCOME CEREMONY</p>
+    <div id="formBox"></div>
+  </div>
+  <p style="font-size:1.35rem; font-weight:800; margin:14px 0 8px;">PART 2 — True or False?</p>
+  <div id="ltfBox"></div>
+</section>
+
+<!-- 12 SPEAKING -->
+<section class="slide">
+  <span class="stage">STAGE 3 · SPEAKING</span>
+  <h2>🗣️ Speaking — Present your proposal</h2>
+  <div class="instr">Work in pairs. Present your plan for a welcome event to your partner: the purpose, the activities and the times. Try to use passive sentences!</div>
+  <div class="card" style="padding:10px;"><img class="mapimg" src="assets/cards/proposal.jpg" alt="A proposal for ASEAN Day"></div>
+  <div class="card">
+    <p style="font-size:1.28rem; line-height:1.6;"><b>Useful language:</b> Our event is called… · The ceremony will be held in… · The guests will be welcomed by… · A traditional dance will be performed… · Prizes will be given to… · Souvenirs will be given to all the guests. · We hope everyone will…</p>
+    <button class="toggle" onclick="document.getElementById('spModel').classList.toggle('show')">👀 Show model / Hide model</button>
+    <div class="model" id="spModel">
+      <p style="font-size:1.28rem; line-height:1.6;">Good morning, everyone. Our event is the <b>ASEAN Welcome Morning</b>. It will be held in the school hall on Saturday. First, the guests will be welcomed at the school gate by our class. Then, a traditional fan dance will be performed on the stage. After that, a singing competition will be held, and prizes will be given to the winners. At the end, small souvenirs will be given to all the guests. We hope everyone will have a wonderful time. Thank you!</p>
+    </div>
+  </div>
+</section>
+
+<!-- 13 WRITING -->
+<section class="slide">
+  <span class="stage">STAGE 3 · WRITING</span>
+  <h2>✍️ Writing — A proposal for a welcome event</h2>
+  <div class="instr">Write a proposal (120–150 words) for a welcome event for ASEAN exchange students at your school. Follow the frame below and use passive sentences.</div>
+  <div class="card">
+    <p style="font-size:1.25rem; margin-bottom:10px; line-height:1.7;"><b>Proposal frame:</b><br>📌 <b>Title:</b> <i>A Proposal for …</i><br>🎯 <b>Purpose:</b> <i>This proposal suggests … to welcome …</i><br>🕗 <b>Activities:</b> <i>– 8:00: The guests are welcomed at … · – 8:30: A … is performed … · – 10:00: Prizes are given to …</i><br>✅ <b>Conclusion:</b> <i>I hope this event will …</i></p>
+    <textarea id="writeBox" placeholder="Write here…"></textarea>
+    <button class="toggle" onclick="document.getElementById('wrModel').classList.toggle('show')">👀 Show model / Hide model</button>
+    <div class="model" id="wrModel">
+      <p style="font-size:1.25rem; line-height:1.6;"><b>A Proposal for an ASEAN Welcome Morning</b><br><b>Purpose:</b> This proposal suggests an ASEAN Welcome Morning to welcome exchange students from Thailand and Indonesia to our school next month. The event will help students learn about other ASEAN cultures and make new friends.<br><b>Activities:</b> The event will be held in the school hall on Saturday morning. At 8:00, the guests will be welcomed at the school gate by our class. At 8:30, a traditional fan dance will be performed on the stage, and songs from different ASEAN countries will be sung. At 10:00, a friendly culture quiz will be held, and prizes will be given to the winners. Finally, small souvenirs will be given to all the guests.<br><b>Conclusion:</b> I hope this welcome event will be a happy and useful experience for everyone.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 14 HOMEWORK A -->
+<section class="slide">
+  <span class="stage">HOMEWORK · PART A</span>
+  <h2>🏠 Homework — Part A: Vocabulary (1–10)</h2>
+  <div class="instr">Choose the correct word for each sentence.</div>
+  <div id="hwABox"></div>
+</section>
+
+<!-- 15 HOMEWORK B -->
+<section class="slide">
+  <span class="stage">HOMEWORK · PART B</span>
+  <h2>🏠 Homework — Part B: Grammar (11–20)</h2>
+  <div class="instr">Choose the correct word for each sentence.</div>
+  <div id="hwBBox"></div>
+</section>
+
+<!-- 16 HOMEWORK C -->
+<section class="slide">
+  <span class="stage">HOMEWORK · PART C</span>
+  <h2>🏠 Homework — Part C: The story (21–30)</h2>
+  <div class="instr">Choose the correct answer about Linh and Nam's story.</div>
+  <div id="hwCBox"></div>
+</section>
+
+<!-- 17 REPORT -->
+<section class="slide">
+  <span class="stage">REPORT CARD</span>
+  <h2>📸 Report Card</h2>
+  <div class="card" id="report">
+    <p style="font-size:1.3rem; font-weight:800; margin-bottom:8px;">Take a photo/screenshot of your report card and send it to your teacher!</p>
+    <input class="name" id="stuName" type="text" placeholder="Your name: ………………">
+    <div class="bigscore" id="hwScore">🏠 HOMEWORK: 0 / 30</div>
+    <div class="bigscore" id="finalScore" style="font-size:1.5rem;">⭐ Total: 0 / 93</div>
+    <table>
+      <tr><th>Part</th><th>Score</th></tr>
+      <tr><td>Warmer game (Lesson 3)</td><td id="r-warm">–</td></tr>
+      <tr><td>Vocabulary — Matching</td><td id="r-match">–</td></tr>
+      <tr><td>Vocabulary — Gap-fill</td><td id="r-vgap">–</td></tr>
+      <tr><td>Grammar check</td><td id="r-prac">–</td></tr>
+      <tr><td>Video check — Order the events</td><td id="r-ord">–</td></tr>
+      <tr><td>Video check — True / False</td><td id="r-tf">–</td></tr>
+      <tr><td>Reading</td><td id="r-read">–</td></tr>
+      <tr><td>Listening — Form completion</td><td id="r-lgap">–</td></tr>
+      <tr><td>Listening — True / False</td><td id="r-ltf">–</td></tr>
+      <tr><td>Homework A — Vocabulary</td><td id="r-hwA">–</td></tr>
+      <tr><td>Homework B — Passive voice</td><td id="r-hwB">–</td></tr>
+      <tr><td>Homework C — The story</td><td id="r-hwC">–</td></tr>
+    </table>
+  </div>
+</section>
+
+<footer class="credit">✍️ Created by Mrs. Thanh Giang — Giáo viên tiếng Anh, Trường THPT Chuyên Thoại Ngọc Hầu, tỉnh An Giang</footer>
+
+<nav class="foot">
+  <button id="prevBtn" onclick="go(cur-1)">⬅ Back</button>
+  <span class="dots" id="dots"></span>
+  <button id="nextBtn" onclick="go(cur+1)">Next ➡</button>
+</nav>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+let cur = 0;
+const scores = { warm: 0, match: null, vgap: null, prac: 0, ord: null, tf: 0, read: 0, lgap: null, ltf: 0, hwA: 0, hwB: 0, hwC: 0 };
+const maxs = { warm: 10, match: 10, vgap: 8, prac: 8, ord: 4, tf: 5, read: 6, lgap: 6, ltf: 6, hwA: 10, hwB: 10, hwC: 10 };
+const TOTAL = 93;
+function total() { let t = 0; for (const k in maxs) t += (scores[k] || 0); return t; }
+function hwTotal() { return (scores.hwA || 0) + (scores.hwB || 0) + (scores.hwC || 0); }
+function refresh() {
+  document.getElementById('scoreChip').textContent = '⭐ ' + total() + ' / ' + TOTAL;
+  document.getElementById('hwScore').textContent = '🏠 HOMEWORK: ' + hwTotal() + ' / 30';
+  document.getElementById('finalScore').textContent = '⭐ Total: ' + total() + ' / ' + TOTAL;
+  for (const k in maxs) { const el = document.getElementById('r-' + k); if (el) el.textContent = (scores[k] === null ? '–' : scores[k] + ' / ' + maxs[k]); }
+  document.getElementById('dots').textContent = 'Slide ' + (cur + 1) + ' / ' + slides.length;
+  document.getElementById('prevBtn').disabled = cur === 0;
+  document.getElementById('nextBtn').disabled = cur === slides.length - 1;
+}
+function go(i) {
+  if (i < 0 || i >= slides.length) return;
+  slides[cur].classList.remove('on'); cur = i; slides[cur].classList.add('on');
+  window.scrollTo(0, 0); refresh();
+}
+function buildMCQ(boxId, items, key) {
+  const box = document.getElementById(boxId);
+  items.forEach(it => {
+    const wrap = document.createElement('div'); wrap.className = 'card q';
+    const qt = document.createElement('div'); qt.className = 'qtext'; qt.innerHTML = it.q; wrap.appendChild(qt);
+    const opts = document.createElement('div'); opts.className = 'opts';
+    const ex = document.createElement('div'); ex.className = 'explain'; ex.textContent = it.ex;
+    it.opts.forEach((op, oi) => {
+      const b = document.createElement('button'); b.className = 'opt'; b.textContent = op;
+      b.onclick = () => {
+        opts.querySelectorAll('.opt').forEach(x => x.disabled = true);
+        if (oi === it.ans) { b.classList.add('right'); scores[key]++; }
+        else { b.classList.add('wrong'); opts.children[it.ans].classList.add('right'); }
+        ex.classList.add('show'); refresh();
+      };
+      opts.appendChild(b);
+    });
+    wrap.appendChild(opts); wrap.appendChild(ex); box.appendChild(wrap);
+  });
+}
+function buildTF(boxId, items, key) {
+  const box = document.getElementById(boxId);
+  items.forEach(it => {
+    const wrap = document.createElement('div'); wrap.className = 'card q';
+    const qt = document.createElement('div'); qt.className = 'qtext'; qt.textContent = it.q; wrap.appendChild(qt);
+    const opts = document.createElement('div'); opts.className = 'opts';
+    const ex = document.createElement('div'); ex.className = 'explain'; ex.textContent = it.ex;
+    [['True', true], ['False', false]].forEach(([label, val]) => {
+      const b = document.createElement('button'); b.className = 'opt'; b.textContent = label;
+      b.onclick = () => {
+        opts.querySelectorAll('.opt').forEach(x => x.disabled = true);
+        if (val === it.ans) { b.classList.add('right'); scores[key]++; } else { b.classList.add('wrong'); }
+        ex.classList.add('show'); refresh();
+      };
+      opts.appendChild(b);
+    });
+    wrap.appendChild(opts); wrap.appendChild(ex); box.appendChild(wrap);
+  });
+}
+function buildSelectCheck(boxId, items, key, doneText) {
+  const box = document.getElementById(boxId);
+  items.forEach(it => {
+    const p = document.createElement('p'); p.className = 'selrow';
+    let html = it.text;
+    it.a.forEach((ans, i) => {
+      const sel = '<select class="gap" data-ans="' + ans + '"><option value="">…</option>' + it.o[i].map(o => '<option>' + o + '</option>').join('') + '</select>';
+      html = html.replace('___', sel);
+    });
+    p.innerHTML = html; box.appendChild(p);
+  });
+  const btn = document.createElement('button'); btn.className = 'toggle'; btn.textContent = '✔ Check';
+  const ex = document.createElement('div'); ex.className = 'explain';
+  btn.onclick = () => {
+    let s = 0, tot = 0;
+    box.querySelectorAll('select.gap').forEach(sel => { tot++; if (sel.value === sel.dataset.ans) { s++; sel.style.borderColor = '#2E9E5B'; } else sel.style.borderColor = '#C0392B'; });
+    scores[key] = s; ex.textContent = 'You got ' + s + ' / ' + tot + '. ' + doneText;
+    ex.classList.add('show'); refresh();
+  };
+  box.appendChild(btn); box.appendChild(ex);
+}
+
+/* ---------- RENDER HELPERS ---------- */
+function renderMCQ(sel, items, key) { buildMCQ(sel.replace('#', ''), items, key); }
+function tfRender(sel, items, key) { buildTF(sel.replace('#', ''), items, key); }
+function selRender(sel, items, key) {
+  const box = document.querySelector(sel);
+  const rows = [];
+  items.forEach(it => {
+    const p = document.createElement('p'); p.className = 'selrow';
+    const label = document.createElement('span'); label.innerHTML = it.q + ' ';
+    const s = document.createElement('select'); s.className = 'gap'; s.dataset.ans = it.opts[it.ans];
+    s.innerHTML = '<option value="">…</option>' + it.opts.map(o => '<option>' + o + '</option>').join('');
+    const ex = document.createElement('div'); ex.className = 'explain'; ex.innerHTML = it.ex || '';
+    p.appendChild(label); p.appendChild(s); p.appendChild(ex);
+    box.appendChild(p); rows.push([s, ex]);
+  });
+  const btn = document.createElement('button'); btn.className = 'toggle'; btn.textContent = '✔ Check';
+  const done = document.createElement('div'); done.className = 'explain';
+  btn.onclick = () => {
+    let sc = 0;
+    rows.forEach(rw => { const s = rw[0], ex = rw[1]; if (s.value === s.dataset.ans) { sc++; s.style.borderColor = '#2E9E5B'; } else s.style.borderColor = '#C0392B'; ex.classList.add('show'); });
+    scores[key] = sc; done.textContent = 'You got ' + sc + ' / ' + items.length + '.'; done.classList.add('show'); refresh();
+  };
+  box.appendChild(btn); box.appendChild(done);
+}
+function buildForm(boxId, fields, key) {
+  const box = document.getElementById(boxId);
+  fields.forEach(f => {
+    const p = document.createElement('p'); p.className = 'selrow';
+    const lab = document.createElement('span'); lab.innerHTML = f.label + ' ';
+    const inp = document.createElement('input'); inp.type = 'text'; inp.className = 'gapin'; inp.dataset.accept = f.accept.join('|');
+    p.appendChild(lab); p.appendChild(inp);
+    if (f.suffix) { const sfx = document.createElement('span'); sfx.textContent = ' ' + f.suffix; p.appendChild(sfx); }
+    box.appendChild(p);
+  });
+  const btn = document.createElement('button'); btn.className = 'toggle'; btn.textContent = '✔ Check';
+  const done = document.createElement('div'); done.className = 'explain';
+  btn.onclick = () => {
+    let sc = 0;
+    box.querySelectorAll('input.gapin').forEach(inp => {
+      const norm = v => v.toLowerCase().replace(/\s+/g, '');
+      const ok = inp.dataset.accept.split('|').map(norm).includes(norm(inp.value));
+      if (ok) { sc++; inp.style.borderColor = '#2E9E5B'; } else inp.style.borderColor = '#C0392B';
+    });
+    scores[key] = sc;
+    done.textContent = 'You got ' + sc + ' / ' + fields.length + '. Answers: Saturday · 8:30 · school hall · 50 · fan dance · 0905 246 813.';
+    done.classList.add('show'); refresh();
+  };
+  box.appendChild(btn); box.appendChild(done);
+}
+let fcIdx = 0, fcFlipped = false;
+function fcRender() {
+  const w = FCARDS[fcIdx];
+  const fcCardEl = document.getElementById('fcCard');
+  fcCardEl.classList.remove('flip'); fcFlipped = false;
+  fcCardEl.innerHTML =
+    '<div class="fcface fcfront"><img src="' + w.img + '" alt=""><div class="fchint">❓ ' + w.hint + '</div></div>' +
+    '<div class="fcface fcback"><div class="fcw">' + w.w + '</div>' +
+    '<div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">' +
+    '<button class="spk" type="button" data-a="assets/words/' + w.slug + '.mp3">🔊 Listen</button>' +
+    '<button class="spk" type="button" data-a="assets/words/' + w.slug + '-ex.mp3">🔊 Example</button></div>' +
+    '<div class="fcipa">' + w.ipa + '</div><div class="fcvn">' + w.vn + '</div>' +
+    '<div class="fcdef">' + w.def + '</div><div class="fcex">“' + w.ex + '”</div></div>';
+  fcCardEl.querySelectorAll('.spk').forEach(b => b.addEventListener('click', e => { e.stopPropagation(); new Audio(b.dataset.a).play(); }));
+  document.getElementById('fcCount').textContent = 'Card ' + (fcIdx + 1) + ' / ' + FCARDS.length;
+  document.getElementById('fcProg').style.width = ((fcIdx + 1) / FCARDS.length * 100) + '%';
+}
+function fcFlip() { fcFlipped = !fcFlipped; document.getElementById('fcCard').classList.toggle('flip', fcFlipped); }
+function fcMove(d) { fcIdx = (fcIdx + d + FCARDS.length) % FCARDS.length; fcRender(); }
+function fcInit() { document.getElementById('fcCard').addEventListener('click', fcFlip); fcRender(); }
+let ORDER = [], picked = [];
+function shuffledArr(a) { const arr = a.slice(); for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); const t = arr[i]; arr[i] = arr[j]; arr[j] = t; } return arr; }
+function initOrder(correct, key) {
+  ORDER = correct.slice(); picked = [];
+  const row = document.getElementById('ordRow');
+  shuffledArr(correct).forEach(txt => {
+    const b = document.createElement('button'); b.className = 'ord'; b.textContent = txt;
+    b.onclick = () => {
+      if (b.classList.contains('picked')) { b.classList.remove('picked'); picked = picked.filter(x => x !== txt); }
+      else if (picked.length < ORDER.length) { b.classList.add('picked'); picked.push(txt); }
+      updSeq();
+    };
+    row.appendChild(b);
+  });
+  updSeq();
+}
+function updSeq() { document.getElementById('ordSeq').textContent = 'Your order: ' + (picked.length ? picked.join(' → ') : '…'); }
+function checkOrder() {
+  const ex = document.getElementById('ordEx');
+  let s = 0; picked.forEach((p, i) => { if (ORDER[i] === p) s++; });
+  if (picked.length === ORDER.length) { scores.ord = s; ex.textContent = 'You got ' + s + ' / ' + ORDER.length + ' in the right place. Correct order: ' + ORDER.join(' → ') + '.'; }
+  else { scores.ord = 0; ex.textContent = 'Choose all ' + ORDER.length + ' first!'; }
+  ex.classList.add('show'); refresh();
+}
+function resetOrder() { picked = []; document.querySelectorAll('.ord').forEach(b => b.classList.remove('picked')); updSeq(); document.getElementById('ordEx').classList.remove('show'); }
+function showSlide(i) { go(i); }
+
+/* ---------- WARMER (Lesson 3 review) ---------- */
+const warmQ=[{"q": "A ______ is a person who represents a country or an organisation at a conference.", "opts": ["guest", "delegate", "volunteer", "audience"], "ans": 1, "ex": "Người đại diện cho một nước/tổ chức dự hội nghị là <b>delegate</b> (đại biểu)."}, {"q": "The countries signed an international ______ on climate protection.", "opts": ["agreement", "argument", "appointment", "application"], "ans": 0, "ex": "Các nước ký một <b>agreement</b> (thỏa thuận) quốc tế."}, {"q": "Vietnam will host an international ______ on education next month.", "opts": ["ceremony", "competition", "culture", "conference"], "ans": 3, "ex": "Việt Nam đăng cai một <b>conference</b> (hội nghị) quốc tế."}, {"q": "______ change is a serious problem for many ASEAN countries.", "opts": ["Weather", "Season", "Climate", "Nature"], "ans": 2, "ex": "<b>Climate change</b> = biến đổi khí hậu."}, {"q": "We ______ this ASEAN project since March.", "opts": ["have done", "did", "does", "doing"], "ans": 0, "ex": "'Since March' → hiện tại hoàn thành: <b>have done</b>."}, {"q": "The delegates ______ the agreement yesterday.", "opts": ["have signed", "sign", "signing", "signed"], "ans": 3, "ex": "'Yesterday' → quá khứ đơn: <b>signed</b>."}, {"q": "She ______ part in three international conferences so far.", "opts": ["took", "takes", "has taken", "take"], "ans": 2, "ex": "'So far' (cho đến nay) → hiện tại hoàn thành: <b>has taken</b> part."}, {"q": "Choose the correct sentence.", "opts": ["I have met a Thai delegate yesterday.", "I met a Thai delegate last week.", "I meet a Thai delegate yesterday.", "I have meet a Thai delegate last week."], "ans": 1, "ex": "Có mốc thời gian quá khứ (last week) → quá khứ đơn: <b>I met…</b>"}, {"q": "The climate conference ______ two days ago.", "opts": ["started", "has started", "starts", "starting"], "ans": 0, "ex": "'Two days ago' → quá khứ đơn: <b>started</b>."}, {"q": "______ you ever ______ an ASEAN song in public?", "opts": ["Has / sing", "Do / sang", "Did / sang", "Have / sung"], "ans": 3, "ex": "Hỏi về trải nghiệm: <b>Have</b> you ever <b>sung</b>…?"}];
+renderMCQ("#warmBox",warmQ,"warm",10,"warmprog");
+
+/* ---------- FLASHCARDS ---------- */
+const FCARDS=[{"w": "proposal", "ipa": "/prəˈpəʊzl/", "vn": "bản đề xuất, đề xuất", "def": "(noun) a formal plan or suggestion put forward for people to think about and decide on", "ex": "Linh wrote a proposal for the ASEAN Day event.", "hint": "A written plan you suggest for an event is called a…?", "img": "assets/cards/proposal.jpg", "slug": "proposal"}, {"w": "ceremony", "ipa": "/ˈserəməni/", "vn": "buổi lễ", "def": "(noun) a formal event held on a special occasion, with speeches and performances", "ex": "The welcome ceremony will start at eight a.m.", "hint": "A formal event with speeches and performances is a…?", "img": "assets/cards/ceremony.jpg", "slug": "ceremony"}, {"w": "guest", "ipa": "/ɡest/", "vn": "khách mời", "def": "(noun) a person who is invited to an event or a place", "ex": "Fifty guests from ASEAN countries will visit our school.", "hint": "People who are invited to the event are called…?", "img": "assets/cards/guest.jpg", "slug": "guest"}, {"w": "host", "ipa": "/həʊst/", "vn": "đăng cai; chủ nhà", "def": "(verb / noun) to hold an event and welcome the guests; the person or place that holds an event", "ex": "Our school will host the ASEAN Welcome Ceremony.", "hint": "The school holds the event and welcomes everyone. The school is the…?", "img": "assets/cards/host.jpg", "slug": "host"}, {"w": "organise", "ipa": "/ˈɔːɡənaɪz/", "vn": "tổ chức", "def": "(verb) to plan and make an event or activity happen", "ex": "Students will organise the ASEAN Day this year.", "hint": "You plan everything carefully so the event can happen. You… it.", "img": "assets/cards/organise.jpg", "slug": "organise"}, {"w": "prepare", "ipa": "/prɪˈpeə/", "vn": "chuẩn bị", "def": "(verb) to get things ready for something that will happen", "ex": "We must prepare the stage before the guests arrive.", "hint": "You get everything ready before the event. You…?", "img": "assets/cards/prepare.jpg", "slug": "prepare"}, {"w": "invitation", "ipa": "/ˌɪnvɪˈteɪʃn/", "vn": "thiệp mời, lời mời", "def": "(noun) a written or spoken request asking someone to come to an event", "ex": "Invitations will be sent to all the guests next week.", "hint": "A card that asks people to come to your event is an…?", "img": "assets/cards/invitation.jpg", "slug": "invitation"}, {"w": "poster", "ipa": "/ˈpəʊstə/", "vn": "áp phích, poster", "def": "(noun) a large printed picture or notice put on a wall to advertise something", "ex": "Nam designed a colourful poster for the event.", "hint": "A big notice on the wall tells everyone about the event. It is a…?", "img": "assets/cards/poster.jpg", "slug": "poster"}, {"w": "venue", "ipa": "/ˈvenjuː/", "vn": "địa điểm tổ chức", "def": "(noun) the place where an event or a meeting happens", "ex": "The school hall is the venue for the ceremony.", "hint": "The place where the ceremony is held is called the…?", "img": "assets/cards/venue.jpg", "slug": "venue"}, {"w": "stage", "ipa": "/steɪdʒ/", "vn": "sân khấu", "def": "(noun) the raised area in a hall or theatre where performers stand", "ex": "The dancers will perform on the stage.", "hint": "Performers stand and dance on this raised area. It is the…?", "img": "assets/cards/stage.jpg", "slug": "stage"}, {"w": "audience", "ipa": "/ˈɔːdiəns/", "vn": "khán giả", "def": "(noun) all the people who watch a performance or an event", "ex": "The audience clapped loudly after the dance.", "hint": "All the people watching the show are the…?", "img": "assets/cards/audience.jpg", "slug": "audience"}, {"w": "programme", "ipa": "/ˈprəʊɡræm/", "vn": "chương trình", "def": "(noun) a plan that lists the activities and times of an event", "ex": "The programme includes songs, dances and games.", "hint": "The list of activities and times for the event is the…?", "img": "assets/cards/programme.jpg", "slug": "programme"}, {"w": "competition", "ipa": "/ˌkɒmpəˈtɪʃn/", "vn": "cuộc thi", "def": "(noun) an event in which people try to be the best and win", "ex": "There will be a singing competition in the afternoon.", "hint": "People take part and try to win a prize in a…?", "img": "assets/cards/competition.jpg", "slug": "competition"}, {"w": "prize", "ipa": "/praɪz/", "vn": "giải thưởng", "def": "(noun) something that is given to the winner of a competition", "ex": "The winner will receive a special prize.", "hint": "The winner of the competition gets a…?", "img": "assets/cards/prize.jpg", "slug": "prize"}, {"w": "souvenir", "ipa": "/ˌsuːvəˈnɪə/", "vn": "quà lưu niệm", "def": "(noun) a small object that you keep to remember a place or an event", "ex": "Each guest will be given a small souvenir.", "hint": "A small gift that helps you remember the event is a…?", "img": "assets/cards/souvenir.jpg", "slug": "souvenir"}, {"w": "welcome", "ipa": "/ˈwelkəm/", "vn": "chào đón", "def": "(verb) to greet guests in a friendly way when they arrive", "ex": "Students will welcome the guests at the school gate.", "hint": "You say hello to guests in a friendly way when they arrive. You… them.", "img": "assets/cards/welcome.jpg", "slug": "welcome"}, {"w": "introduce", "ipa": "/ˌɪntrəˈdjuːs/", "vn": "giới thiệu", "def": "(verb) to tell people someone's name so that they can meet", "ex": "Linh will introduce the guests to the audience.", "hint": "You say a person's name so other people know who they are. You… them.", "img": "assets/cards/introduce.jpg", "slug": "introduce"}, {"w": "perform", "ipa": "/pəˈfɔːm/", "vn": "biểu diễn", "def": "(verb) to sing, dance or act in front of an audience", "ex": "Our class will perform a traditional dance.", "hint": "Dancers and singers do this on stage. They…?", "img": "assets/cards/perform.jpg", "slug": "perform"}, {"w": "helper", "ipa": "/ˈhelpə/", "vn": "người hỗ trợ", "def": "(noun) a person who helps to organise or run something", "ex": "We need ten helpers to prepare the hall.", "hint": "A person who helps with the jobs at the event is a…?", "img": "assets/cards/helper.jpg", "slug": "helper"}, {"w": "banner", "ipa": "/ˈbænə/", "vn": "băng rôn, biểu ngữ", "def": "(noun) a long piece of cloth with words or pictures on it, hung up at an event", "ex": "A big banner will be hung above the stage.", "hint": "A long cloth sign with ASEAN DAY on it above the stage is a…?", "img": "assets/cards/banner.jpg", "slug": "banner"}];
+fcInit();
+
+/* ---------- MATCHING ---------- */
+const matchQ=[{"q": "proposal", "opts": ["buổi lễ", "bản đề xuất", "chương trình", "khách mời"], "ans": 1, "ex": "<b>proposal</b> = bản đề xuất."}, {"q": "ceremony", "opts": ["buổi lễ", "sân khấu", "giải thưởng", "băng rôn"], "ans": 0, "ex": "<b>ceremony</b> = buổi lễ."}, {"q": "guest", "opts": ["người hỗ trợ", "chủ nhà", "khách mời", "khán giả"], "ans": 2, "ex": "<b>guest</b> = khách mời."}, {"q": "venue", "opts": ["áp phích", "địa điểm tổ chức", "thiệp mời", "sân khấu"], "ans": 1, "ex": "<b>venue</b> = địa điểm tổ chức."}, {"q": "stage", "opts": ["sân khấu", "chương trình", "địa điểm tổ chức", "cuộc thi"], "ans": 0, "ex": "<b>stage</b> = sân khấu."}, {"q": "audience", "opts": ["khách mời", "người hỗ trợ", "khán giả", "giải thưởng"], "ans": 2, "ex": "<b>audience</b> = khán giả."}, {"q": "programme", "opts": ["bản đề xuất", "buổi lễ", "quà lưu niệm", "chương trình"], "ans": 3, "ex": "<b>programme</b> = chương trình."}, {"q": "prize", "opts": ["giải thưởng", "cuộc thi", "băng rôn", "thiệp mời"], "ans": 0, "ex": "<b>prize</b> = giải thưởng."}, {"q": "souvenir", "opts": ["áp phích", "quà lưu niệm", "sân khấu", "chương trình"], "ans": 1, "ex": "<b>souvenir</b> = quà lưu niệm."}, {"q": "banner", "opts": ["khách mời", "buổi lễ", "giải thưởng", "băng rôn"], "ans": 3, "ex": "<b>banner</b> = băng rôn, biểu ngữ."}];
+selRender("#matchBox",matchQ,"match");
+
+/* ---------- VOCAB GAP ---------- */
+const vgapQ=[{"q": "Linh wrote a ______ for the ASEAN Day event.", "opts": ["poster", "prize", "proposal", "programme"], "ans": 2, "ex": "Linh wrote a <b>proposal</b> (bản đề xuất)."}, {"q": "The welcome ______ will be held in the school hall.", "opts": ["ceremony", "competition", "souvenir", "banner"], "ans": 0, "ex": "The welcome <b>ceremony</b> (buổi lễ chào mừng)."}, {"q": "Please send the ______ to the guests this week.", "opts": ["audience", "stage", "venue", "invitation"], "ans": 3, "ex": "Please send the <b>invitation</b> (thiệp mời)."}, {"q": "The ______ clapped happily after the performance.", "opts": ["helpers", "audience", "hosts", "prizes"], "ans": 1, "ex": "The <b>audience</b> (khán giả) clapped."}, {"q": "Nam designed a big ______ for the school gate.", "opts": ["prize", "programme", "poster", "banner"], "ans": 2, "ex": "Nam designed a <b>poster</b> (áp phích)."}, {"q": "Every guest will receive a small ______.", "opts": ["souvenir", "stage", "venue", "ceremony"], "ans": 0, "ex": "…a small <b>souvenir</b> (quà lưu niệm)."}, {"q": "Our school will ______ the event this year.", "opts": ["perform", "welcome", "introduce", "host"], "ans": 3, "ex": "Our school will <b>host</b> the event (đăng cai)."}, {"q": "We need more ______ to set up the chairs.", "opts": ["guests", "helpers", "audiences", "prizes"], "ans": 1, "ex": "We need more <b>helpers</b> (người hỗ trợ)."}];
+selRender("#vgapBox",vgapQ,"vgap");
+
+/* ---------- GRAMMAR CHECK ---------- */
+const pracQ=[{"q": "The ASEAN Welcome Ceremony ______ in the school hall every year.", "opts": ["holds", "held", "is held", "holding"], "ans": 2, "ex": "Việc diễn ra hằng năm, dùng bị động hiện tại đơn: <b>is held</b>."}, {"q": "The first ASEAN Day ______ in 2020.", "opts": ["was organised", "organises", "organised", "is organise"], "ans": 0, "ex": "'In 2020' → bị động quá khứ: <b>was organised</b>."}, {"q": "The guests ______ at the school gate tomorrow morning.", "opts": ["welcome", "will welcome", "welcoming", "will be welcomed"], "ans": 3, "ex": "Khách ĐƯỢC chào đón trong tương lai: <b>will be welcomed</b>."}, {"q": "A big banner ______ above the stage yesterday.", "opts": ["hung", "was hung", "is hung", "hangs"], "ans": 1, "ex": "'Yesterday' → bị động quá khứ: <b>was hung</b>."}, {"q": "All the invitations ______ tomorrow.", "opts": ["will be sent", "send", "will send", "sent"], "ans": 0, "ex": "Thiệp mời SẼ ĐƯỢC gửi vào ngày mai: <b>will be sent</b>."}, {"q": "The proposal ______ by Linh last night.", "opts": ["writes", "wrote", "was written", "is write"], "ans": 2, "ex": "Bản đề xuất ĐÃ ĐƯỢC viết tối qua: <b>was written</b>."}, {"q": "Choose the correct sentence.", "opts": ["The stage will decorated by the students.", "The stage will be decorated by the students.", "The stage is decorate by the students.", "The stage will be decorate by the students."], "ans": 1, "ex": "Bị động tương lai đúng: will be + V3 → <b>will be decorated</b>."}, {"q": "Souvenirs ______ to the guests at the end of the ceremony.", "opts": ["give", "gives", "are given", "giving"], "ans": 2, "ex": "Quà lưu niệm ĐƯỢC tặng: <b>are given</b> (bị động hiện tại đơn, chủ ngữ số nhiều)."}];
+renderMCQ("#pracBox",pracQ,"prac",6,"pracprog");
+
+/* ---------- ORDER ---------- */
+initOrder(["Write a proposal for the ceremony","Show the proposal to the teacher","Hang the banner and the flags","Welcome the ASEAN guests"],"ord");
+
+/* ---------- TRUE/FALSE ---------- */
+const tfQ=[{"q": "Linh wrote the proposal in the school library.", "ans": true, "ex": "Đúng — Linh ngồi trong thư viện trường và viết bản đề xuất."}, {"q": "Nam wanted to remove the singing competition from the programme.", "ans": false, "ex": "Sai — chính Nam đề xuất thêm cuộc thi hát: “A singing competition will be held.”"}, {"q": "Ms Hoa did not approve the proposal.", "ans": false, "ex": "Sai — cô Hoa đã phê duyệt: “Your proposal is approved.”"}, {"q": "A big banner was hung above the stage.", "ans": true, "ex": "Đúng — một băng rôn lớn được treo phía trên sân khấu."}, {"q": "The ASEAN guests were welcomed at the school gate.", "ans": true, "ex": "Đúng — khách được chào đón ngay tại cổng trường với hoa và nụ cười."}];
+tfRender("#tfBox",tfQ,"tf");
+
+/* ---------- READING ---------- */
+const readQ=[{"q": "What is the main idea of the story?", "opts": ["How to design a school banner", "The history of ASEAN", "Students organise a welcome ceremony for ASEAN guests", "A singing competition at school"], "ans": 2, "ex": "Toàn bài kể về việc học sinh tổ chức buổi lễ chào đón khách ASEAN."}, {"q": "Where did Linh write the proposal?", "opts": ["At the school gate", "In the school hall", "In the school yard", "In the school library"], "ans": 3, "ex": "Linh viết bản đề xuất trong <b>thư viện trường</b> (the school library)."}, {"q": "What did Ms Hoa say about the proposal?", "opts": ["It was approved", "It was too long", "It needed more activities", "Nam wrote it"], "ans": 0, "ex": "Cô Hoa nói: “Your proposal <b>is approved</b>.” (bản đề xuất được phê duyệt)."}, {"q": "The word “approved” in paragraph 2 is closest in meaning to ______.", "opts": ["written", "accepted", "performed", "refused"], "ans": 1, "ex": "<b>approved</b> = được chấp thuận ≈ <b>accepted</b>."}, {"q": "What can be inferred about the students?", "opts": ["They worked hard to prepare for the event.", "They had never organised an event before.", "The guests did not enjoy the programme.", "Only Linh performed on stage."], "ans": 0, "ex": "Họ chuẩn bị hội trường, treo băng rôn, xếp ghế và kiểm tra mọi thứ cẩn thận — họ làm việc chăm chỉ."}, {"q": "Which of the following is NOT true?", "opts": ["The banner was hung above the stage", "The guests arrived at eight o'clock", "The group photo was taken in the morning", "Songs were sung in different ASEAN languages"], "ans": 2, "ex": "Ảnh tập thể được chụp lúc hoàng hôn (when the sun went down), không phải buổi sáng."}];
+renderMCQ("#readBox",readQ,"read",5,"readprog");
+
+/* ---------- LISTENING GAP ---------- */
+const FORMF=[
+{label:"Day:",accept:["Saturday"]},
+{label:"Start time:",accept:["8:30","8.30","830","half past eight"]},
+{label:"Venue: the",accept:["school hall"]},
+{label:"Number of guests:",accept:["50","fifty"]},
+{label:"Performance by Class 11A1: a traditional",accept:["fan dance"]},
+{label:"Questions? Call the school office on:",accept:["0905246813","0905 246 813"]},
+];
+buildForm('formBox',FORMF,'lgap');
+const LTF=[
+{q:"The posters were finished this morning.",ans:false,ex:"Sai — sáng nay băng rôn (banner) được treo xong; áp phích (posters) Nam sẽ làm xong tối nay."},
+{q:"There will be more chairs than guests at the ceremony.",ans:true,ex:"Đúng — có 50 khách nhưng các bạn chuẩn bị 60 ghế vì còn có giáo viên đến dự."},
+{q:"The fan dance will be performed after the singing competition.",ans:false,ex:"Sai — tiết mục múa quạt biểu diễn TRƯỚC cuộc thi hát."},
+{q:"The order of activities in the programme has changed.",ans:true,ex:"Đúng — Linh nói chương trình đã được thay đổi hôm qua."},
+{q:"Souvenirs will be given to the guests before the group photo.",ans:false,ex:"Sai — quà lưu niệm được tặng ở cuối buổi, SAU khi chụp ảnh tập thể."},
+{q:"Linh and Nam will check the hall again before the ceremony starts.",ans:true,ex:"Đúng — hai bạn hẹn gặp ở hội trường lúc 7 giờ sáng thứ Bảy để kiểm tra lại mọi thứ."},
+];
+buildTF('ltfBox',LTF,'ltf');
+
+/* ---------- HOMEWORK A ---------- */
+const hwAQ=[{"q": "A formal plan or suggestion for an event is a ______.", "opts": ["poster", "proposal", "prize", "programme"], "ans": 1, "ex": "Một bản kế hoạch/đề xuất chính thức cho sự kiện là <b>proposal</b>."}, {"q": "The place where an event is held is called the ______.", "opts": ["stage", "audience", "venue", "banner"], "ans": 2, "ex": "Địa điểm tổ chức sự kiện là <b>venue</b>."}, {"q": "You ______ guests when you greet them in a friendly way.", "opts": ["welcome", "perform", "prepare", "compete"], "ans": 0, "ex": "Chào đón khách một cách thân thiện là <b>welcome</b>."}, {"q": "The people who watch a performance are the ______.", "opts": ["helpers", "hosts", "guests", "audience"], "ans": 3, "ex": "Người xem biểu diễn là <b>audience</b> (khán giả)."}, {"q": "We need to ______ the hall before the ceremony.", "opts": ["prize", "prepare", "programme", "poster"], "ans": 1, "ex": "Cần <b>prepare</b> (chuẩn bị) hội trường trước buổi lễ."}, {"q": "The winner of the competition will get a ______.", "opts": ["venue", "stage", "prize", "souvenir"], "ans": 2, "ex": "Người thắng cuộc nhận <b>prize</b> (giải thưởng)."}, {"q": "Linh will ______ the guests to the audience.", "opts": ["introduce", "invitation", "inviting", "introduction"], "ans": 0, "ex": "Sau 'will' dùng động từ nguyên thể: <b>introduce</b> (giới thiệu)."}, {"q": "A long piece of cloth with words on it, hung up at an event, is a ______.", "opts": ["poster", "programme", "banner", "souvenir"], "ans": 2, "ex": "Tấm vải dài có chữ treo ở sự kiện là <b>banner</b> (băng rôn)."}, {"q": "Our school will ______ an ASEAN Day next month.", "opts": ["guest", "host", "audience", "stage"], "ans": 1, "ex": "Trường ĐĂNG CAI tổ chức: <b>host</b>."}, {"q": "The dancers ______ on the stage.", "opts": ["welcome", "prepare", "organise", "perform"], "ans": 3, "ex": "Vũ công <b>perform</b> (biểu diễn) trên sân khấu."}];
+selRender("#hwABox",hwAQ,"hwA");
+
+/* ---------- HOMEWORK B ---------- */
+const hwBQ=[{"q": "The ceremony ______ in the school hall every year.", "opts": ["holds", "is held", "held", "hold"], "ans": 1, "ex": "Bị động hiện tại đơn: <b>is held</b>."}, {"q": "The hall ______ by the students yesterday.", "opts": ["decorates", "decorated", "was decorated", "is decorate"], "ans": 2, "ex": "'Yesterday' → bị động quá khứ: <b>was decorated</b>."}, {"q": "The guests ______ flowers when they arrive tomorrow.", "opts": ["will be given", "give", "gives", "will give"], "ans": 0, "ex": "Khách SẼ ĐƯỢC tặng hoa: <b>will be given</b>."}, {"q": "All the posters ______ last night.", "opts": ["prints", "print", "printing", "were printed"], "ans": 3, "ex": "'Last night', chủ ngữ số nhiều → <b>were printed</b>."}, {"q": "English ______ in many ASEAN countries.", "opts": ["speaks", "speak", "is spoken", "spoke"], "ans": 2, "ex": "Tiếng Anh ĐƯỢC nói ở nhiều nước: <b>is spoken</b>."}, {"q": "The first ASEAN Day in our school ______ five years ago.", "opts": ["was held", "holds", "is held", "hold"], "ans": 0, "ex": "'Five years ago' → bị động quá khứ: <b>was held</b>."}, {"q": "Choose the correct sentence.", "opts": ["The invitations was sent yesterday.", "The invitations were sent yesterday.", "The invitations is sent yesterday.", "The invitations sends yesterday."], "ans": 1, "ex": "Chủ ngữ số nhiều 'invitations' + quá khứ: <b>were sent</b>."}, {"q": "A group photo ______ at the end of the event.", "opts": ["takes", "take", "took", "will be taken"], "ans": 3, "ex": "Ảnh tập thể SẼ ĐƯỢC chụp cuối buổi: <b>will be taken</b>."}, {"q": "The programme ______ by Nam and Linh tomorrow.", "opts": ["will be presented", "presents", "will present", "presented"], "ans": 0, "ex": "Chương trình SẼ ĐƯỢC trình bày vào ngày mai: <b>will be presented</b>."}, {"q": "Souvenirs ______ for the guests right now.", "opts": ["prepare", "prepares", "are being prepared", "prepared"], "ans": 2, "ex": "'Right now' + bị động tiếp diễn: <b>are being prepared</b>."}];
+selRender("#hwBBox",hwBQ,"hwB");
+
+/* ---------- HOMEWORK C ---------- */
+const hwCQ=[{"q": "Linh wrote the proposal in the ______.", "opts": ["school hall", "school library", "school yard", "classroom"], "ans": 1, "ex": "Linh viết bản đề xuất trong <b>school library</b>."}, {"q": "Nam suggested a traditional dance and a singing ______.", "opts": ["competition", "ceremony", "programme", "audience"], "ans": 0, "ex": "Nam đề xuất một <b>competition</b> (cuộc thi hát)."}, {"q": "The proposal was approved by ______.", "opts": ["Nam", "the guests", "Ms Hoa", "the helpers"], "ans": 2, "ex": "Bản đề xuất được <b>Ms Hoa</b> phê duyệt."}, {"q": "The banner was hung above the ______.", "opts": ["gate", "hall", "door", "stage"], "ans": 3, "ex": "Băng rôn được treo phía trên <b>stage</b> (sân khấu)."}, {"q": "Early on Saturday, the chairs were arranged by the ______.", "opts": ["guests", "helpers", "audience", "teachers"], "ans": 1, "ex": "Ghế được <b>helpers</b> (các bạn hỗ trợ) sắp xếp."}, {"q": "The ASEAN guests arrived at ______ o'clock.", "opts": ["seven", "nine", "eight", "ten"], "ans": 2, "ex": "Khách đến lúc <b>eight</b> (8 giờ)."}, {"q": "The guests were welcomed with ______.", "opts": ["flowers", "souvenirs", "prizes", "posters"], "ans": 0, "ex": "Khách được chào đón bằng <b>flowers</b> (hoa)."}, {"q": "Songs were sung in different ______ languages.", "opts": ["European", "Asian", "African", "ASEAN"], "ans": 3, "ex": "Các bài hát được hát bằng nhiều ngôn ngữ <b>ASEAN</b>."}, {"q": "At the end of the day, a group ______ was taken.", "opts": ["dance", "photo", "song", "prize"], "ans": 1, "ex": "Cuối ngày, một bức ảnh tập thể (group <b>photo</b>) được chụp."}, {"q": "Souvenirs were given to the ______.", "opts": ["teachers", "helpers", "guests", "audience"], "ans": 2, "ex": "Quà lưu niệm được tặng cho <b>guests</b> (khách mời)."}];
+selRender("#hwCBox",hwCQ,"hwC");
+
+showSlide(0);
+</script>
+</body>
+</html>
